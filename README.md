@@ -1,28 +1,30 @@
 # data-warehouse-etl-pipeline
 Khung quy trình ETL toàn diện cho tích hợp dữ liệu CUKCUK: Raw → Staging → Data Warehouse.
-🏗️ Multi-Source Data Warehouse ETL Framework
+# 🏗️ Multi-Source Data Warehouse ETL Framework
 
-Framework ETL tổng quát cho nhiều nguồn dữ liệu: CUKCUK, CNV, và các hệ thống khác
+> **Framework ETL tổng quát cho nhiều nguồn dữ liệu: CUKCUK, CNV, và các hệ thống khác**
 
-📋 Tổng quan
-Repository này chứa framework ETL tổng quát để xây dựng data warehouse từ nhiều nguồn dữ liệu khác nhau, bao gồm:
+## 📋 Tổng quan
 
-🍴 CUKCUK API: Dữ liệu nhà hàng (invoices, employees, products)
-📊 CNV System: Dữ liệu kinh doanh và vận hành
-🏦 Banking APIs: Dữ liệu giao dịch tài chính
-📱 Mobile Apps: User behavior và analytics
-🗄️ Legacy Systems: Dữ liệu từ các hệ thống cũ
-🔌 Custom APIs: Các nguồn dữ liệu nội bộ khác
+Repository này chứa framework ETL tổng quát để xây dựng data warehouse từ **nhiều nguồn dữ liệu khác nhau**, bao gồm:
 
-🎯 Mục tiêu
+- 🍴 **CUKCUK API**: Dữ liệu nhà hàng (invoices, employees, products)
+- 📊 **CNV System**: Dữ liệu kinh doanh và vận hành  
+- 🏦 **Banking APIs**: Dữ liệu giao dịch tài chính
+- 📱 **Mobile Apps**: User behavior và analytics
+- 🗄️ **Legacy Systems**: Dữ liệu từ các hệ thống cũ
+- 🔌 **Custom APIs**: Các nguồn dữ liệu nội bộ khác
 
-Chuẩn hóa quy trình ETL cho mọi nguồn dữ liệu trong công ty
-Tự động hóa việc đồng bộ từ multiple sources
-Thống nhất cấu trúc dữ liệu từ các hệ thống khác nhau
-Scalable framework có thể mở rộng cho nguồn dữ liệu mới
-Tăng tốc việc onboard hệ thống mới vào data warehouse
+### 🎯 Mục tiêu
+- **Chuẩn hóa** quy trình ETL cho mọi nguồn dữ liệu trong công ty
+- **Tự động hóa** việc đồng bộ từ multiple sources
+- **Thống nhất** cấu trúc dữ liệu từ các hệ thống khác nhau
+- **Scalable** framework có thể mở rộng cho nguồn dữ liệu mới
+- **Tăng tốc** việc onboard hệ thống mới vào data warehouse
 
-🏛️ Architecture
+## 🏛️ Architecture
+
+```
 ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
 │  CUKCUK API     │───▶│                 │    │                 │    │                 │
 ├─────────────────┤    │   Raw Tables    │───▶│ Staging Tables  │───▶│ Data Warehouse  │
@@ -40,19 +42,26 @@ Tăng tốc việc onboard hệ thống mới vào data warehouse
         └──────────────▶│  Raw Storage  │──────▶│  Data Model   │──────▶│  Intelligence │
                         │               │       │               │       │  (Superset)   │
                         └───────────────┘       └───────────────┘       └───────────────┘
-🔄 Multi-Source Data Flow
+```
 
-Source Connectors: n8n workflows cho từng data source
-Raw Ingestion: Lưu dữ liệu thô theo source-specific schema
-Standardization: Transform sang unified staging format
-Integration: Combine data từ multiple sources
-Analytics: Cross-source insights và reporting
+### 🔄 Multi-Source Data Flow
 
-🚀 Quick Start
-Prerequisites
+1. **Source Connectors**: n8n workflows cho từng data source
+2. **Raw Ingestion**: Lưu dữ liệu thô theo source-specific schema  
+3. **Standardization**: Transform sang unified staging format
+4. **Integration**: Combine data từ multiple sources
+5. **Analytics**: Cross-source insights và reporting
 
-n8n instance
-MySQL 8.0+
-ClickHouse 23.0+
-Apache Superset
-CUKCUK API credentials
+## 🚀 Quick Start
+
+### Prerequisites
+- n8n instance
+- MySQL 8.0+
+- ClickHouse 23.0+
+- Apache Superset
+- CUKCUK API credentials
+
+### 1. Clone Repository
+```bash
+git clone 
+cd data-warehouse-etl-pipeline
